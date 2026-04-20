@@ -5,16 +5,3 @@ quarto-required: ">=1.4.0"
 contributes:
   shortcodes:
     - name: video-or-qr
-      doc: |
-        A Quarto shortcode extension that renders video content in HTML and a QR code in PDF/EPUB.
-
-        ## Usage
-
-        ```markdown
-        {{< video-or-qr "https://example.com/video.mp4" "Watch the demonstration" >}}
-        ```
-
-        ## How it works
-
-        - **HTML**: Renders as an embedded video player with the provided URL
-        - **PDF/EPUB**: Renders as a QR code that links to the URL, with caption below

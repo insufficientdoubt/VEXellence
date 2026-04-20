@@ -1,0 +1,54 @@
+project:
+  type: book
+  output-dir: docs
+  pre-render: scripts/generate-qrs.py
+
+book:
+  title: "MRJL Robotics Handbook"
+  subtitle: "Your Guide to Competitive Robotics Success"
+  author: "Mingwan Junior League"
+  date: "2026 Season"
+  chapters:
+    - index.qmd
+    - part: "getting-started" # hidden part title
+      chapters:
+        - sections/01-welcome.qmd
+    - part: "core-skills"
+      chapters:
+        - sections/02-engineering.qmd
+        - sections/03-coding.qmd
+        - sections/04-strategy.qmd
+        - sections/05-driving.qmd
+    - part: "teamwork"
+      chapters:
+        - sections/06-team-management.qmd
+        - sections/07-checklists.qmd
+        - sections/08-glossary.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    link-external-icon: true
+    html-math-method: katex
+  pdf:
+    documentclass: scrbook
+    number-sections: true
+    geometry:
+      - top=2.5cm
+      - bottom=2.5cm
+      - left=2.5cm
+      - right=2.5cm
+    include-in-header:
+      text: |
+        \usepackage{tcolorbox}
+        \usepackage{rotating}
+  epub:
+    toc: true
+
+variables:
+  club-name: "MRJL"
+  club-full: "Mingwan Junior League"
