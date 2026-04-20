@@ -1,0 +1,30 @@
+# h5p
+
+A Quarto shortcode extension for H5P interactive content with print fallbacks.
+
+## Usage
+
+```markdown
+{{< h5p url="https://example.com/h5p/12345" type="matching" 
+  question="Match the robot parts" 
+  options="Motor|Provides movement" 
+  answer="Motor" 
+  hint="Think about what makes the robot move" >}}
+```
+
+## How it works
+
+- **HTML**: Renders as an embedded H5P iframe
+- **PDF**: Renders as a styled box with question, enumerated options, and upside-down answer
+- **EPUB**: Renders as plain text with visible answer
+
+## Parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| url | URL to the H5P content |
+| type | Type of activity (matching, quiz, video, etc.) |
+| question | The question or prompt |
+| options | Pipe-separated list of option\|answer pairs |
+| answer | The correct answer |
+| hint | Optional hint for learners |

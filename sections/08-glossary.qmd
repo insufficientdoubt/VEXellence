@@ -1,0 +1,322 @@
+# Glossary
+
+A reference guide to robotics and MRJL terminology.
+
+---
+
+# Section 8: Glossary {.unnumbered}
+
+## A
+
+### Autonomous Period
+The portion of a match where the robot operates entirely on pre-programmed instructions, with no driver input. In VEX IQ, typically 45 seconds.
+
+### Alliance
+A partnership of two teams that compete together in a match against another alliance.
+
+### Actuation
+The process of moving or controlling a mechanism. "Actuate the claw" means to close or open it.
+
+### Arm
+A robotic arm mechanism used to lift, reach, or manipulate game pieces.
+
+## B
+
+### Backlash
+The clearance between meshing gears that causes a small delay between input and output motion. Can cause accuracy issues.
+
+### Battery Level
+The amount of charge remaining in the robot's battery. Lower battery = lower motor power = slower robot.
+
+### Belt Drive
+A power transmission system using a continuous loop of material (belt) to transfer motion between pulleys.
+
+### Bumper
+A touch sensor that detects when pressed against an object.
+
+### Build Log
+Documentation of all building activities, changes, and decisions made during robot construction.
+
+## C
+
+### Calibration
+The process of setting reference values for sensors (e.g., zeroing a gyroscope).
+
+### C-Channel
+A VEX IQ structural piece with a C-shaped cross-section, used for building frames and supports.
+
+### Chain Drive
+A power transmission system using a roller chain and sprockets, similar to a bicycle.
+
+### Competition Driver
+The team member who operates the robot controller during driver-controlled periods.
+
+### Deadband
+A range of controller input values (usually near zero) that are ignored to prevent jittery movement when the joystick is at rest.
+
+### Degrees of Freedom (DOF)
+The number of independent movements a mechanism can make. A standard robot arm typically has 2-3 DOF.
+
+### Drivetrain
+The system of motors, wheels, and structure that allows the robot to move. Also called "drive base."
+
+### Driver Period
+The portion of a match where the robot is controlled by human drivers. In VEX IQ, typically 75 seconds.
+
+## E
+
+### Encoder
+A sensor that measures rotation, providing feedback on motor position and speed.
+
+### Endgame
+The final portion of the driver period (usually last 20-30 seconds) where robots attempt high-value scoring actions.
+
+### Engineering Notebook
+A detailed documentation of the team's design process, building activities, and reflections.
+
+### EtherNet Cable
+A cable used for connecting the programming cable to the VEX IQ Brain.
+
+## F
+
+### Field
+The playing surface where matches take place. Includes the game elements and scoring zones.
+
+### Flywheel
+A spinning wheel used to store kinetic energy for launching game pieces with consistent power.
+
+## G
+
+### Game Design
+The rules and objectives for a specific year's competition. Changes annually.
+
+### Game Element
+Objects used in the competition game (balls, cubes, rings, etc.).
+
+### Gear Ratio
+The relationship between input and output rotation speed/torque in a gear system.
+
+### Gyroscope / Inertial Sensor
+A sensor that measures rotation and orientation, used for precise turning and driving straight.
+
+## H
+
+### Handoff
+The transition between autonomous and driver control, or between drivers A and B.
+
+### Hook
+A hook-shaped mechanism designed to engage with game elements or field features.
+
+## I
+
+### Intake
+A mechanism designed to collect game pieces into the robot.
+
+### Iteration
+The process of making repeated improvements to a design through cycles of testing and refinement.
+
+## L
+
+### Lift
+A mechanism that raises and lowers the robot or its subsystems. Also called an "elevator."
+
+### Linkage
+A system of connected bars used to convert rotational motion to linear motion (and vice versa).
+
+## M
+
+### Mechanism
+A mechanical system that performs a specific function (intake, arm, drivetrain, etc.).
+
+### Motor
+An actuator that converts electrical energy into rotational motion.
+
+### Motor Port
+A connection point on the VEX IQ Brain for motors and sensors.
+
+## N
+
+### Notebook
+Short for Engineering Notebook.
+
+## O
+
+### Odometry
+The use of sensor data (encoder, gyroscope) to track robot position over time.
+
+## P
+
+### PID Control
+Proportional-Integral-Derivative control — an algorithm that smooths and stabilizes motor movements based on sensor feedback.
+
+### Pneumatics
+Systems that use compressed air to power mechanisms, providing strong linear actuation.
+
+### Pre-Load
+Game pieces that are placed on the robot before the match begins.
+
+### Programming Cable
+A cable used to transfer code from a computer to the VEX IQ Brain.
+
+### Prototype
+An early version of a mechanism or design for testing purposes.
+
+## Q
+
+### Queue / Queuing
+The process of lining up for matches. Teams are called to the field in groups (queues).
+
+## R
+
+### Rack and Pinion
+A linear motion system using a gear (pinion) engaging with a toothed bar (rack).
+
+### Radio Link
+The wireless connection between the VEX IQ Controller and Brain.
+
+### RPM
+Revolutions Per Minute — a measure of motor or mechanism speed.
+
+## S
+
+### Scoring Zone
+A designated area of the field where game elements earn points when placed correctly.
+
+### Sensor
+A device that provides feedback about the robot's environment or internal state.
+
+### Skills
+Individual challenges (not full matches) where robots attempt specific tasks for points.
+
+### Smart Port
+VEX IQ's motor and sensor connection system with built-in intelligence.
+
+### Spinning
+When a motor is activated and rotating. "Is the motor spinning?"
+
+### Sprocket
+A toothed wheel used in chain drive systems.
+
+### Stall
+When a motor is applying power but cannot move the load, causing it to draw maximum current.
+
+### Subsystem
+A functional division of the robot (drivetrain, intake, arm, etc.).
+
+## T
+
+### Tank Treads
+Continuous tracks that provide high traction for driving. Also called "tank treads" or "tracks."
+
+### Tank Drive
+A control scheme where two sticks independently control left and right sides of the drivetrain.
+
+### Taxonomy
+A classification system. In robotics, often refers to categorizing mechanisms by type.
+
+### Team Number
+A unique identifier assigned to each registered team.
+
+### Torque
+The rotational force produced by a motor. Higher torque = can move heavier loads.
+
+### Training
+Learning activities for new team members before they work on competition robots.
+
+### Tuning
+The process of adjusting parameters (PID values, speeds, timings) to optimize performance.
+
+## V
+
+### VEX IQ
+The robotics platform used in MRJL competitions.
+
+## W
+
+### Wheelbase
+The distance between the left and right wheels on a drivetrain, affecting stability and turning.
+
+### Work Session
+A scheduled time when the team meets to build, code, and practice.
+
+---
+
+## Common Abbreviations
+
+| Abbreviation | Full Term |
+|--------------|-----------|
+| 2D | Two-dimensional |
+| 3D | Three-dimensional |
+| AI | Artificial Intelligence |
+| API | Application Programming Interface |
+| auto | Autonomous |
+| avg | Average |
+| Bat | Battery |
+| B/C | Build/Coding (meeting format) |
+| B/P | Builder/Pit (role designation) |
+| CAD | Computer-Aided Design |
+| Cntl | Controller |
+| Ctrl | Control |
+| D/A | Driver A |
+| D/B | Driver B |
+| deg | Degrees |
+| DOF | Degrees of Freedom |
+| Dr | Driver |
+| drv | Drivetrain |
+| env | Endgame |
+| FWD | Forward |
+| gear | Gearbox |
+| gyro | Gyroscope |
+| I/O | Input/Output |
+| in | Inches |
+| int | Intake |
+| LED | Light-Emitting Diode |
+| LiPo | Lithium Polymer (battery type) |
+| mA | Milliamps (electrical current) |
+| max | Maximum |
+| mech | Mechanism |
+| min | Minimum |
+| mm | Millimeters |
+| mot | Motor |
+| MRJL | Mingwan Junior League |
+| N/A | Not Applicable |
+| Nav | Navigation |
+| No. | Number |
+| ODE | Ordinary Differential Equation |
+| PID | Proportional-Integral-Derivative |
+| PPS | Points Per Second |
+| prev | Previous |
+| pri | Primary |
+| PS | Power Supply |
+| PWM | Pulse Width Modulation |
+| QP | Qualification Points |
+| RAM | Random Access Memory |
+| rev | Reverse |
+| RMS | Root Mean Square |
+| RPM | Revolutions Per Minute |
+| sec | Seconds |
+| sol | Solenoid |
+| Spd | Speed |
+| SR | Session Record |
+| SSD | Solid State Drive |
+| TBD | To Be Determined |
+| temp | Temperature |
+| tol | Tolerance |
+| TOT | Tournament |
+| TTL | Transistor-Transistor Logic |
+| UART | Universal Asynchronous Receiver-Transmitter |
+| USB | Universal Serial Bus |
+| V | Volts |
+| var | Variable |
+| VEX | Vector Electronics |
+| VRC | VEX Robotics Competition |
+| WD | When Drafted |
+| WP | Win Points |
+
+---
+
+::: {.callout-note}
+## Contributing to This Glossary
+
+If you encounter terms not defined here or find existing definitions unclear, report them to your team captain for review and update.
+:::

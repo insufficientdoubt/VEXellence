@@ -1,0 +1,410 @@
+# Engineering Fundamentals
+
+This section covers the mechanical and systems knowledge every MRJL team member needs. You'll learn about VEX IQ components, common mechanisms, and design principles that will help you build better robots.
+
+::: {.callout-note}
+## Learning Objectives
+
+By the end of this section, you will be able to:
+
+1. Identify and explain the function of essential VEX IQ parts
+2. Describe common drivetrain types and when to use each
+3. Understand basic mechanism design principles
+4. Apply modular design to your robot builds
+:::
+
+---
+
+# Section 2: Engineering {.unnumbered}
+
+## 2.1 Learning Through Building
+
+The best way to learn engineering is to **build things and break them**. This section provides example mechanisms you can construct as learning exercises before applying that knowledge to your competition robot.
+
+### Example Mechanisms for Learning
+
+::: {.callout-tip}
+## Exercise Philosophy
+
+These example mechanisms are for **learning only**. Build them, test them, modify them, break them, and rebuild them. The competition robot comes later.
+:::
+
+### Exercise 1: The Flipper
+
+**Purpose**: Understand linkages and rotation transfer
+
+**Parts needed**:
+- 2x C-channels
+- 4x screws
+- 2x standoffs
+- 1x motor
+
+**What you'll learn**:
+- How rotational motion converts to linear motion
+- Trade-offs between speed and force
+
+### Exercise 2: The Claw
+
+**Purpose**: Understand grip mechanics and force distribution
+
+**Parts needed**:
+- 4x structural pieces
+- 2x shafts
+- 2x bearings
+- 1x motor
+- Rubber bands (for grip)
+
+**What you'll learn**:
+- How to grip objects without crushing them
+- Using elastic elements for consistent force
+
+### Exercise 3: The Elevator
+
+**Purpose**: Understand multi-stage lifting systems
+
+**Parts needed**:
+- 4x C-channels (matched lengths)
+- 8x shaft segments
+- 4x gears (various sizes)
+- 1x motor with gear box
+
+**What you'll learn**:
+- Gear ratios and mechanical advantage
+- Managing backlash and alignment
+
+## 2.2 Essential Parts
+
+### The Brain (VEX IQ Brain)
+
+The VEX IQ Brain is the robot's central controller:
+
+| Specification | Value |
+|--------------|-------|
+| Ports | 12 Smart Ports |
+| Programming | Python, Blocks, C++ |
+| Display | LCD screen for status |
+| Storage | SD card for data logging |
+
+**Smart Ports** accept:
+
+- Motors (ports 1-12)
+- Sensors (ports 1-12)
+- Touch LED (ports 1-12)
+
+::: {.callout-warning}
+Only use VEX IQ cables with the Brain. Using non-VEX cables can damage the controller.
+:::
+
+### The Controller
+
+The VEX IQ Controller provides driver input:
+
+- **2 Analog Sticks** — Left (forward/back + turn) and Right (arm/aux)
+- **12 Buttons** — 4 top, 4 bottom-left, 4 bottom-right
+- **LCD Screen** — Shows battery, diagnostics
+- **Radio Link** — Communicates with Brain
+
+### Sensors
+
+| Sensor | Function | Common Uses |
+|--------|----------|-------------|
+| **Gyroscope** | Measures rotation angle | Autonomous turns, driving straight |
+| **Distance** | Measures distance to objects | Object detection, wall following |
+| **Color** | Detects colors | Line following, game piece sorting |
+| **Touch** | Detects contact | Limit switches, bump sensors |
+| **Bumper** | Simple contact sensor | Mechanical limit detection |
+
+### Structural Parts
+
+#### Beams and Channels
+
+| Part | Description | Use |
+|------|-------------|-----|
+| **Standoff** | Threaded connector | Spacing, lightweight structure |
+| **Beam** | Non-threaded rod | Structural frame |
+| **C-Channel** | U-shaped structural piece | Main frame, load-bearing |
+| **Angle Bar** | L-shaped structural piece | Corner bracing |
+
+#### Connection Parts
+
+| Part | Description | Use |
+|------|-------------|-----|
+| **Screw** | Fastener (various lengths) | Primary attachment |
+| **Lock Bushing** | Prevents screw loosening | Critical connections |
+| **Shaft** | Rotational axle | Motor connections, wheels |
+| **Bearing** | Reduces friction | Supports shafts |
+
+### Motors and Power
+
+#### VEX IQ Smart Motor
+
+| Specification | Value |
+|--------------|-------|
+| Speed | 100 RPM (gear ratio dependent) |
+| Torque | 0.36 N·m (high torque gearing) |
+| Built-in Encoder | Yes (quadrature) |
+
+**Gear Ratios**:
+
+- **Blue (1:1)** — Fast, low torque
+- **Red (2:1)** — Medium speed, medium torque
+- **Green (5:1)** — Slow, high torque
+- **Yellow (12.5:1)** — Very slow, maximum torque
+
+#### Pneumatics (Advanced)
+
+VEX IQ supports pneumatic systems for high-force applications:
+
+- **Pneumatic cylinder** — Linear actuator
+- **Air tank** — Stores compressed air
+- **Solenoid** — Controls airflow direction
+
+::: {.callout-note}
+Pneumatics require special handling and are only for advanced teams. Start with motor-based mechanisms first.
+:::
+
+## 2.3 Basic Drive Train Types
+
+The drivetrain is the foundation of your robot. Choose wisely.
+
+### Tank Tread
+
+**Pros**: Excellent traction, simple to build, good on carpet
+
+**Cons**: Slower turning, harder to maintain, uses more battery
+
+**Best for**: Pushing matches, heavy robots
+
+```
+     ┌─────────────┐
+     │ ▓▓▓▓▓▓▓▓▓▓▓ │
+  ┌──┤ ▓▓▓▓▓▓▓▓▓▓▓ ├──┐
+  │  │ ▓▓▓▓▓▓▓▓▓▓▓ │  │
+  │  └─────────────┘  │
+  │    MOTOR   MOTOR  │
+  └──────────────────┘
+```
+
+### Direct Drive (4-Wheel)
+
+**Pros**: Simple, fast, efficient
+
+**Cons**: Less traction, can get stuck on obstacles
+
+**Best for**: Light, fast robots, precise driving
+
+```
+  ┌──────────────────┐
+  │ ●            ●   │
+  │                  │
+  │ ●            ●   │
+  └──────────────────┘
+     MOTOR   MOTOR
+```
+
+### 6-Wheel (Drop-Center)
+
+**Pros**: Good balance of speed and stability, turns well
+
+**Cons**: Moderate complexity
+
+**Best for**: All-around competition robots
+
+```
+  ┌──────────────────┐
+  │ ●            ●   │
+  │                  │
+  │      ○    ○      │  ← Dropped center wheels
+  │                  │
+  │ ●            ●   │
+  └──────────────────┘
+     MOTOR   MOTOR
+```
+
+### Mecanum (Advanced)
+
+**Pros**: Omnidirectional movement, precise positioning
+
+**Cons**: Complex, expensive, requires more tuning
+
+**Best for**: Precise autonomous routines
+
+::: {.callout-tip}
+## Drivetrain Selection Guide
+
+| Priority | Choice |
+|----------|--------|
+| **Speed > Traction** | Direct drive |
+| **Traction > Speed** | Tank tread |
+| **Balanced** | 6-wheel drop center |
+| **Competition Advanced** | Mecanum |
+
+:::
+
+## 2.4 Basic Arm Types
+
+### Single-Joint Arm
+
+The simplest arm design:
+
+```
+      ┌───
+      │   ← Arm
+      │
+   ───┴───
+      │
+     [M] ← Motor
+```
+
+**Characteristics**:
+
+- Simple to build
+- Limited reach
+- Best for: Low platforms, simple tasks
+
+### Double-Joint Arm (2-Bar)
+
+Two linkages for more reach:
+
+```
+      ┌────
+      │    ← Arm segment 2
+      │
+   ───┴───
+      │    ← Arm segment 1
+      │
+     [M]
+```
+
+**Characteristics**:
+
+- More reach than single joint
+- Better height range
+- More complex to tune
+
+### 4-Bar Linkage
+
+Parallel bars maintain orientation:
+
+```
+    ┌────────────┐
+    │            │  ← Top bar (stays level)
+    └────────────┘
+         │
+         │  ← Lift bars
+         │
+    ┌────────────┐
+    │            │  ← Bottom bar (stays level)
+    └────────────┘
+         │
+        [M]
+```
+
+**Characteristics**:
+
+- End effector stays level
+- More complex but more versatile
+- Better for precise placement tasks
+
+## 2.5 Essential Common Mechanisms
+
+### Intake Mechanism
+
+The intake collects game pieces into the robot.
+
+####roller Intake
+
+```
+     ┌─────────────┐
+    ╱│ ▓▓▓▓▓▓▓▓▓▓▓ │╲  ← Rubber bands for grip
+   ╱ └─────────────┘ ╲
+  │                    │
+  │    ═══════════     │  ← Roller (spinning)
+  │    ═══════════     │
+  │                    │
+   ╲                  ╱
+     ───────────────
+           │
+          [M]
+```
+
+**Key principles**:
+
+- Rubber bands provide consistent grip pressure
+- Roller speed affects collection reliability
+- Position affects pickup reach
+
+### Launcher (Catapult)
+
+For launching game objects:
+
+#### Torsion Launcher
+
+```
+    ══════════════════  ← Long arm
+         │
+    ─────┴─────
+    │  ○    ○  │  ← Rubber bands (torsion)
+    │          │
+    ───────────
+```
+
+**Key principles**:
+
+- Stored energy in stretched rubber bands
+- Release angle determines trajectory
+- Arm length affects power
+
+### Hook/Flip Mechanism
+
+For scoring on elevated bars or flipping panels:
+
+```
+         │
+    ─────┴─────
+    │   ╔═══╗   │
+    │   ║   ║   │  ← Hook
+    │   ╚═══╝   │
+         │
+    ─────┴─────
+       [MOTOR]
+```
+
+**Key principles**:
+
+- Hook shape matches target geometry
+- Motor must hold position under load
+- Consider release angle
+
+### Lift System
+
+For elevating the robot or mechanisms:
+
+#### Rack and Pinion
+
+```
+    ═══════════════════  ← Rack (vertical teeth)
+    │▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│
+    │▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│
+    │▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│
+         │
+        [M] ← Pinion gear
+```
+
+**Key principles**:
+
+- Provides precise vertical movement
+- Can be very strong with proper gearing
+- Chain or belt drives more common than rack
+
+::: {.callout-example}
+## Mechanism Integration Example
+
+A common competition robot might combine:
+
+1. **Intake** — Collect game pieces
+2. **Elevator** — Lift pieces to scoring height
+3. **Launcher** — Score at high targets
+
+Each mechanism should work independently AND with others.
+:::

@@ -1,0 +1,369 @@
+# Team Management
+
+A successful robotics team needs more than good robots — it needs good organization, clear responsibilities, and proper documentation. This section covers everything from weekly duties to tournament management.
+
+::: {.callout-note}
+## Learning Objectives
+
+By the end of this section, you will be able to:
+
+1. Manage weekly team responsibilities effectively
+2. Execute tournament day duties without stress
+3. Maintain an engineering notebook that impresses judges
+4. Build a culture of continuous improvement
+:::
+
+---
+
+# Section 6: Team Management {.unnumbered}
+
+## 6.1 Weekly Responsibilities
+
+Every team member has duties beyond robot building and coding.
+
+### Role-Based Responsibilities
+
+#### Captain Duties
+
+| Day | Task | Duration |
+|-----|------|----------|
+| **Monday** | Review previous week's progress | 15 min |
+| **Monday** | Set week's goals and priorities | 15 min |
+| **Monday** | Check in with each team member | 10 min |
+| **Thursday** | Run strategy session | 30 min |
+| **Thursday** | Review and update notebook | 20 min |
+| **Ongoing** | Mediate conflicts, maintain morale | As needed |
+
+#### Builder Duties
+
+| Day | Task | Duration |
+|-----|------|----------|
+| **Monday** | Inspect robot for damage | 10 min |
+| **Monday** | Document current state | 5 min |
+| **Monday** | Complete assigned build tasks | 2-3 hrs |
+| **Thursday** | Implement any code-driven changes | 30 min |
+| **Thursday** | Test and verify changes | 20 min |
+| **Ongoing** | Maintain tool organization | Ongoing |
+
+#### Coder Duties
+
+| Day | Task | Duration |
+|-----|------|----------|
+| **Monday** | Pull latest code changes | 5 min |
+| **Monday** | Review autonomous performance | 15 min |
+| **Monday** | Implement new features | 1-2 hrs |
+| **Thursday** | Test autonomous routines | 45 min |
+| **Thursday** | Update code documentation | 15 min |
+| **Ongoing** | Maintain code repository | Ongoing |
+
+#### Driver Duties
+
+| Day | Task | Duration |
+|-----|------|----------|
+| **Monday** | Practice basic maneuvers | 30 min |
+| **Monday** | Provide feedback on robot handling | 10 min |
+| **Thursday** | Run practice matches | 60 min |
+| **Thursday** | Work on timing and precision | 20 min |
+| **Ongoing** | Study match video for improvement | As needed |
+
+### Weekly Meeting Structure
+
+```
+MRJL Weekly Meeting Template
+═══════════════════════════════════════════════════════════
+
+MONDAY MEETING (18:00 - 21:00)
+────────────────────────────────────────────────────────────────
+18:00 - 18:15   │ Arrive, settle, equipment check
+                │
+18:15 - 18:30   │ Captain's briefing
+                │ - Last week's progress review
+                │ - This week's goals
+                │ - Role assignments
+                │
+18:30 - 20:45   │ WORK SESSION
+                │ ┌─────────────────────────────────────────┐
+                │ │ 18:30 - 19:30  │ Build block           │
+                │ │ 19:30 - 19:45  │ Break                  │
+                │ │ 19:45 - 20:45  │ Code & integration     │
+                │ └─────────────────────────────────────────┘
+                │
+20:45 - 21:00   │ Wrap-up
+                │ - What was accomplished
+                │ - What's next
+                │ - Clean workspace
+
+═══════════════════════════════════════════════════════════
+
+THURSDAY MEETING (18:00 - 20:00)
+────────────────────────────────────────────────────────────────
+18:00 - 18:15   │ Arrive, robot inspection
+                │
+18:15 - 18:45   │ Strategy session
+                │ - Review match footage
+                │ - Discuss opponent strategies
+                │ - Practice run planning
+                │
+18:45 - 19:45   │ Practice Matches
+                │ - 3-4 full run-throughs
+                │ - Driver handoff practice
+                │ - Endgame timing
+                │
+19:45 - 20:00   │ Notebook update
+                │ - Document today's learnings
+                │ - Note any problems solved
+                │
+20:00           │ Clean and dismiss
+
+═══════════════════════════════════════════════════════════
+```
+
+## 6.2 Tournament Responsibilities
+
+Tournament days require extra organization and focus.
+
+### Pre-Tournament Week Checklist
+
+#### One Week Before
+
+- [ ] Confirm registration and payment
+- [ ] Review tournament schedule
+- [ ] Check robot for any needed repairs
+- [ ] Charge all batteries
+- [ ] Print team materials (resume, pit display)
+
+#### Three Days Before
+
+- [ ] Confirm transportation arrangements
+- [ ] Review match schedule
+- [ ] Prepare spare parts kit
+- [ ] Update emergency contacts
+
+#### Day Before
+
+- [ ] Pack robot and tools
+- [ ] Pack batteries and charger
+- [ ] Pack notebook and team materials
+- [ ] Charge personal devices
+- [ ] Review tournament rules
+
+### Tournament Day Timeline
+
+```
+Tournament Day Timeline
+═══════════════════════════════════════════════════════════════
+
+05:30  │ Wake up / Final packing
+06:30  │ Depart for venue
+07:30  │ Arrive at venue
+       │
+07:30 - 08:00  │ Unload and set up pit
+08:00 - 09:00  │ Inspection queue
+09:00 - 09:30  │ Opening ceremonies
+09:30 - 12:00  │ Practice matches & Robot skills
+12:00 - 13:00  │ Lunch break
+13:00 - 17:00  │ Qualifier matches
+17:00 - 18:00  │ Alliance selection (if applicable)
+18:00 - 19:00  │ Elimination matches
+19:00 - 20:00  │ Awards ceremony
+20:00 - 21:00  │ Pack up and depart
+
+═══════════════════════════════════════════════════════════════
+```
+
+### Pit Crew Responsibilities
+
+During tournament matches, not everyone can be at the field.
+
+#### Pit Crew Roles
+
+| Role | Location | Responsibilities |
+|------|---------|-----------------|
+| **Pit Manager** | Pit station | Coordinates all pit activities, manages time |
+| **Robot Tech** | Pit station | Quick repairs, battery swaps, adjustments |
+| **Data Analyst** | Pit or stands | Watches matches, records opponent info |
+| **Runner** | Between pit and field | Brings robot to/from field queue |
+
+#### During Your Match
+
+```
+Pit Crew Actions During Match
+═══════════════════════════════════════════════════════════
+
+DURING YOUR MATCH:
+─────────────────────────────────────────────────────────────
+• Pit Manager watches match from pit
+• Robot Tech has tools ready for quick adjustments
+• DO NOT approach the field during matches
+─────────────────────────────────────────────────────────────
+
+AFTER YOUR MATCH (if time before next queue call):
+─────────────────────────────────────────────────────────────
+• Runner retrieves robot from field
+• Robot Tech inspects for damage
+• Any quick repairs are made
+• Battery is swapped to fresh
+• Robot Tech confirms robot ready
+• Runner brings robot back to pit
+• Robot is placed in queue area
+─────────────────────────────────────────────────────────────
+
+⚠️ You have approximately 10 minutes between matches
+   to prepare for your next match
+═══════════════════════════════════════════════════════════
+```
+
+### Field Crew Responsibilities
+
+The drivers and captain are at the field during matches.
+
+#### Driver Station Setup
+
+```
+Driver Station Checklist
+═══════════════════════════════════════════════════════════
+
+AT THE FIELD (30 minutes before first match):
+─────────────────────────────────────────────────────────────
+□ Controller batteries (if applicable)
+□ Controller configured to team number
+□ Controller tested with robot
+□ Any driver aids / markings applied
+□ Timekeeper briefed
+□ Strategy card ready
+─────────────────────────────────────────────────────────────
+
+BEFORE EACH MATCH:
+─────────────────────────────────────────────────────────────
+□ Robot powered on in inspection area
+□ Gyro / sensors calibrated
+□ All mechanisms verified working
+□ Fresh battery confirmed
+□ Autonomous mode selected
+□ Controller connected
+□ "Ready" confirmed to captain
+─────────────────────────────────────────────────────────────
+```
+
+## 6.3 Notebooking
+
+The engineering notebook is your team's documentation of the engineering design process. Judges use it to understand your team's journey and decision-making.
+
+### What Goes in the Notebook
+
+::: {.callout-tip}
+## The Golden Rule of Notebooking
+
+**If it's not in the notebook, it didn't happen.**
+
+Document everything, even the failures. Judges value the story of how you got to your final design, not just the final design itself.
+:::
+
+#### Daily Entries Should Include
+
+| Category | What to Document |
+|----------|-----------------|
+| **Progress** | What was built or coded today |
+| **Decisions** | Why you chose one design over another |
+| **Problems** | Issues encountered and how you solved them |
+| **Measurements** | Actual data (times, distances, scores) |
+| **Next Steps** | What's planned for the next session |
+
+#### Weekly Summaries
+
+```
+Weekly Summary Template
+═══════════════════════════════════════════════════════════════
+
+Week of: _______________
+Team Members Present: _______________
+
+ACCOMPLISHMENTS THIS WEEK:
+─────────────────────────────────────────────────────────────
+1. _______________________________________________________
+2. _______________________________________________________
+3. _______________________________________________________
+
+PROBLEMS ENCOUNTERED:
+─────────────────────────────────────────────────────────────
+Problem 1: _________________________________________________
+Solution: __________________________________________________
+
+CHANGES MADE TO DESIGN:
+─────────────────────────────────────────────────────────────
+Before → After: ____________________________________________
+Reason for change: _________________________________________
+
+GOALS FOR NEXT WEEK:
+─────────────────────────────────────────────────────────────
+1. _______________________________________________________
+2. _______________________________________________________
+
+METRICS:
+─────────────────────────────────────────────────────────────
+Autonomous success rate: ____%
+Driver run time: ____ seconds
+Match score average: ____ points
+
+═══════════════════════════════════════════════════════════════
+```
+
+### Notebook Organization
+
+| Section | Content | Page Range |
+|---------|---------|------------|
+| **Cover Page** | Team info, season, contact | 1 |
+| **Table of Contents** | Overview of sections | 2-3 |
+| **Team Introduction** | Members, roles, goals | 4-5 |
+| **Brainstorming** | Initial ideas and sketches | 6-15 |
+| **Design Process** | How you chose your design | 16-30 |
+| **Building Log** | Construction photos and notes | 31-60 |
+| **Code Development** | Programming evolution | 61-80 |
+| **Testing & Iteration** | Results and improvements | 81-100 |
+| **Competition Records** | Match results, notes | 101-120 |
+| **Team Reflections** | What you learned | 121+ |
+
+### Photo Documentation
+
+Take photos of:
+
+- [ ] Initial brainstorming sketches
+- [ ] Prototype versions (even failed ones)
+- [ ] Assembly progress
+- [ ] Testing setups
+- [ ] Competition day
+- [ ] Team members working
+
+::: {.callout-example}
+## Photo Caption Example
+
+**Bad caption**: "Robot building"
+
+**Good caption**: 
+> "Week 3: Testing the first arm prototype. We discovered that the 5:1 gear ratio provided enough torque but was too slow for our target cycle time of 4 seconds. Switched to 3:1 ratio in Week 4."
+
+**Great caption**:
+> "Arm prototype v1.0 (left) vs v2.0 (right). The main change was increasing gear ratio from 5:1 to 3:1, reducing cycle time from 5.2s to 3.8s. Trade-off: we had to reinforce the mount point because the faster arm stressed the beam joint. Added double-support brackets which added 15g but solved the flex issue."
+:::
+
+### Judging Criteria
+
+Engineering notebooks are typically judged on:
+
+| Criterion | Weight | What Judges Look For |
+|-----------|--------|---------------------|
+| **Documentation** | 30% | Completeness of process documentation |
+| **Design Process** | 25% | Evidence of iteration and improvement |
+| **Team Journey** | 20% | Story of how the team worked together |
+| **Engineering** | 15% | Technical rigor and problem-solving |
+| **Presentation** | 10% | Organization and readability |
+
+::: {.callout-tip}
+## Notebook Tips
+
+1. **Write weekly, not all at once** — It's easier and more accurate
+2. **Include failures** — They're often more educational than successes
+3. **Use sketches** — A quick drawing explains more than paragraphs
+4. **Be specific** — "Changed arm design" vs "Changed arm mounting from single-screw to double-screw for increased rigidity"
+5. **Document decisions** — Not just what you did, but why you chose it
+:::

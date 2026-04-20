@@ -1,0 +1,404 @@
+# Checklists
+
+Checklists prevent mistakes and ensure nothing is forgotten. Use these before competitions, before meetings, and before any important activity.
+
+---
+
+# Section 7: Checklists {.unnumbered}
+
+## 7.1 Pre-Match Checklist
+
+Complete this checklist **before every match**, including practice matches.
+
+### Robot Inspection
+
+```
+┌────────────────────────────────────────────────────────────────────┐
+│ PRE-MATCH ROBOT CHECKLIST                                          │
+├────────────────────────────────────────────────────────────────────┤
+│                                                                    │
+│  STRUCTURAL                                                        │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ All screws tightened and secured                               │
+│  □ No loose beams or connections                                   │
+│  □ Wheel/tread tension correct                                     │
+│  □ Cable management secure (no hanging wires)                     │
+│  □ No sharp edges that could catch                                 │
+│                                                                    │
+│  MOTORS & MECHANISMS                                              │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ All motors mounted securely                                     │
+│  □ Gears properly meshed (no grinding)                             │
+│  □ Intake/mechanism moves freely                                   │
+│  □ Rubber bands intact and properly tensioned                      │
+│  □ Endgame mechanism locked/securured                              │
+│                                                                    │
+│  ELECTRONICS                                                       │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ Brain powered on and functional                                 │
+│  □ All smart cables fully inserted                                 │
+│  □ Sensors connected and responding                                │
+│  □ Controller linked to brain                                      │
+│  □ Battery level > 80% (check Brain display)                      │
+│                                                                    │
+│  AUTONOMOUS                                                        │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ Correct program selected                                        │
+│  □ Gyro/ inertial sensor calibrated (if used)                      │
+│  □ Autonomous starts correctly on signal                          │
+│  □ All autonomous routines tested this session                    │
+│                                                                    │
+│  SPARE PARTS (if available)                                        │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ Spare batteries                                                 │
+│  □ Spare cortex cables                                             │
+│  □ Basic tool kit                                                  │
+│  □ Zip ties and hardware                                           │
+│                                                                    │
+└────────────────────────────────────────────────────────────────────┘
+```
+
+### Driver Station Checklist
+
+```
+┌────────────────────────────────────────────────────────────────────┐
+│ DRIVER STATION CHECKLIST                                          │
+├────────────────────────────────────────────────────────────────────┤
+│                                                                    │
+│  CONTROLLER SETUP                                                  │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ Controller battery level adequate                                │
+│  □ Controller configured to team number                            │
+│  □ All buttons tested and responsive                               │
+│  □ All sticks range tested (full 0-100)                          │
+│  □ Deadband settings verified                                      │
+│                                                                    │
+│  COMMUNICATION                                                     │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ Radio link connected (LED indicators)                          │
+│  □ Backup communication signals established                        │
+│  □ Timekeeper knows role                                           │
+│  □ Driver A and B positions confirmed                              │
+│                                                                    │
+│  MATCH PLAN                                                        │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ Autonomous routine confirmed                                    │
+│  □ Driver handoff plan understood                                  │
+│  □ Endgame timing reviewed                                         │
+│  □ Backup plans discussed                                          │
+│  □ Strategy card accessible                                        │
+│                                                                    │
+│  MENTAL PREPARATION                                                │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ Both drivers focused                                            │
+│  □ Confidence level adequate                                       │
+│  □ Any last-minute concerns addressed                              │
+│                                                                    │
+└────────────────────────────────────────────────────────────────────┘
+```
+
+## 7.2 Post-Match Checklist
+
+Complete after every match to prepare for the next one.
+
+```
+┌────────────────────────────────────────────────────────────────────┐
+│ POST-MATCH CHECKLIST                                               │
+├────────────────────────────────────────────────────────────────────┤
+│                                                                    │
+│  IMMEDIATE (within 5 minutes)                                     │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ Retrieve robot from field                                       │
+│  □ Quick visual inspection for damage                              │
+│  □ Battery swap if below 70%                                       │
+│  □ Report any issues to Pit Manager                                │
+│                                                                    │
+│  AT PIT STATION                                                    │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ Full damage inspection                                           │
+│  □ Re-tighten any loose connections                                │
+│  □ Test all mechanisms                                             │
+│  □ Verify autonomous still works                                   │
+│  □ Document any issues in notebook                                 │
+│                                                                    │
+│  MATCH ANALYSIS                                                    │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ Score recorded                                                   │
+│  □ What went well?                                                 │
+│  □ What went wrong?                                                │
+│  □ What needs to change?                                           │
+│  □ Opponent information noted?                                     │
+│                                                                    │
+│  NEXT MATCH PREP                                                   │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ Robot in queue area                                             │
+│  □ Fresh battery if needed                                         │
+│  □ Changes implemented (if any)                                    │
+│  □ Updated strategy (if needed)                                    │
+│                                                                    │
+└────────────────────────────────────────────────────────────────────┘
+```
+
+## 7.3 Robot Maintenance Checklist
+
+Weekly maintenance keeps your robot reliable.
+
+```
+┌────────────────────────────────────────────────────────────────────┐
+│ WEEKLY ROBOT MAINTENANCE                                           │
+├────────────────────────────────────────────────────────────────────┤
+│                                                                    │
+│  BEFORE EVERY SESSION                                              │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ Visual inspection of all connections                            │
+│  □ Check wheel/tread wear                                          │
+│  □ Verify battery condition                                         │
+│  □ Test all motors individually                                     │
+│  □ Check sensor response                                            │
+│                                                                    │
+│  END OF EVERY SESSION                                              │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ Clean debris from mechanisms                                    │
+│  □ Remove any tangled rubber bands                                 │
+│  □ Check for worn parts                                            │
+│  □ Secure any loose hardware                                       │
+│                                                                    │
+│  EVERY 2 WEEKS                                                     │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ Deep clean all mechanisms                                       │
+│  □ Lubricate shafts (dry lubricant only)                          │
+│  □ Check gear wear                                                 │
+│  □ Test battery capacity                                            │
+│  □ Replace worn rubber bands                                       │
+│  □ Inspect and replace worn cables                                 │
+│                                                                    │
+│  BEFORE TOURNAMENT                                                 │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ Complete 2-week checklist                                       │
+│  □ Build spare parts kit                                           │
+│  □ Pack tool kit                                                   │
+│  □ Pack backup batteries                                           │
+│  □ Full functionality test                                         │
+│                                                                    │
+└────────────────────────────────────────────────────────────────────┘
+```
+
+## 7.4 Pit Setup Checklist
+
+Use when setting up your pit area at tournaments.
+
+```
+┌────────────────────────────────────────────────────────────────────┐
+│ PIT SETUP CHECKLIST                                                │
+├────────────────────────────────────────────────────────────────────┤
+│                                                                    │
+│  WORKSPACE                                                         │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ Table covered (cloth or mat)                                    │
+│  □ Adequate lighting                                               │
+│  □ Power strip accessible (if available)                           │
+│  □ Space for robot, tools, and laptop                              │
+│                                                                    │
+│  ROBOT STATION                                                     │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ Robot case or storage area                                      │
+│  □ Charging station set up                                         │
+│  □ Spare parts organized                                           │
+│  □ Tool kit accessible                                             │
+│                                                                    │
+│  DISPLAY MATERIALS                                                 │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ Team banner/flag                                                │
+│  □ Pit display (team info, robot info)                            │
+│  □ Engineering notebook (on display)                               │
+│  □ Team resume printed                                              │
+│  □ Business cards (if applicable)                                  │
+│                                                                    │
+│  ELECTRONICS                                                       │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ Battery charger                                                 │
+│  □ Spare batteries (minimum 4)                                     │
+│  □ Programming cable                                               │
+│  □ Laptop with software                                             │
+│  □ Extension cord                                                  │
+│                                                                    │
+│  TOOLS                                                             │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ Hex keys (all sizes)                                            │
+│  □ Screwdrivers (Phillips and flathead)                            │
+│  □ Pliers                                                          │
+│  □ Wire cutters                                                    │
+│  □ Zip ties (various sizes)                                        │
+│  □ Electrical tape                                                 │
+│  □ Multi-meter (for advanced teams)                                │
+│  □ VEX motor controller (if available)                             │
+│                                                                    │
+│  SAFETY                                                            │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ Safety glasses available for team                               │
+│  □ First aid kit accessible                                        │
+│  □ Fire extinguisher location known                                │
+│  □ Emergency exits identified                                       │
+│                                                                    │
+└────────────────────────────────────────────────────────────────────┘
+```
+
+## 7.5 Emergency Procedures
+
+### Robot Won't Respond
+
+```
+EMERGENCY: Robot Not Responding
+═══════════════════════════════════════════════════════════════════
+
+STEP 1: Check Connections
+──────────────────────────────────────────────────────────────────
+□ Are all smart cables fully inserted?
+□ Are there any visible cable damage?
+□ Try reconnecting the cable
+
+STEP 2: Power Cycle
+──────────────────────────────────────────────────────────────────
+□ Turn off the Brain
+□ Wait 10 seconds
+□ Turn on the Brain
+□ Wait for startup complete
+
+STEP 3: Check Controller
+──────────────────────────────────────────────────────────────────
+□ Is controller linked? (look for indicator on Brain)
+□ Try re-pairing controller
+□ Try different controller (if available)
+
+STEP 4: Last Resort
+──────────────────────────────────────────────────────────────────
+□ Download current program again
+□ If issue persists, robot may need pit crew inspection
+
+TIME ESTIMATE: 2-5 minutes
+
+═══════════════════════════════════════════════════════════════════
+```
+
+### Autonomous Failure During Match
+
+```
+EMERGENCY: Autonomous Not Working
+═══════════════════════════════════════════════════════════════════
+
+IMMEDIATE (during autonomous period):
+──────────────────────────────────────────────────────────────────
+□ DO NOT touch controller during autonomous
+□ If autonomous fails, let it fail
+□ Driver control starts automatically at the end of autonomous
+
+AFTER THE MATCH:
+──────────────────────────────────────────────────────────────────
+□ Diagnose what went wrong
+□ Check sensor readings
+□ Test autonomous code with sensors
+□ Look for environmental factors (lighting, field differences)
+
+PREVENTIVE FOR NEXT MATCH:
+──────────────────────────────────────────────────────────────────
+□ Have a backup simple autonomous ready
+□ Verify all sensors before match
+□ Document any environmental concerns
+
+═══════════════════════════════════════════════════════════════════
+```
+
+### Motor or Mechanism Failure
+
+```
+EMERGENCY: Motor/ Mechanism Failure
+═══════════════════════════════════════════════════════════════════
+
+IMMEDIATE (during match):
+──────────────────────────────────────────────────────────────────
+□ Assess if robot can still compete
+□ Modify driver strategy if possible
+□ Complete remaining possible actions
+
+AT PIT (between matches):
+──────────────────────────────────────────────────────────────────
+□ Identify which motor/mechanism failed
+□ Check for debris causing jam
+□ Inspect for broken parts
+□ If motor: test motor directly
+□ If structure: assess repair time
+
+REPAIR DECISION:
+──────────────────────────────────────────────────────────────────
+□ Can repair in < 5 minutes? → Repair now
+□ Can robot still compete? → Compete with limitation
+□ Major repair needed? → Prioritize during lunch break
+
+TOOLS NEEDED:
+──────────────────────────────────────────────────────────────────
+□ Screwdriver
+□ Replacement parts (if available)
+□ Rubber bands
+□ Backup motor (if available)
+
+═══════════════════════════════════════════════════════════════════
+```
+
+## 7.6 Pre-Tournament Final Checklist
+
+Complete this the night before or morning of the tournament.
+
+```
+┌────────────────────────────────────────────────────────────────────┐
+│ PRE-TOURNAMENT FINAL CHECKLIST                                      │
+├────────────────────────────────────────────────────────────────────┤
+│                                                                    │
+│  NIGHT BEFORE                                                      │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ All batteries charged                                            │
+│  □ Robot packed and ready                                          │
+│  □ Tool kit packed                                                 │
+│  □ Spare parts sorted                                              │
+│  □ Team shirts/uniforms ready                                      │
+│  □ Notebook updated                                                │
+│  □ Schedule reviewed                                                │
+│                                                                    │
+│  MORNING OF TOURNAMENT                                             │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ Robot secured in case                                           │
+│  □ Batteries in bag                                                │
+│  □ Chargers in bag                                                  │
+│  □ Tools in bag                                                     │
+│  □ Laptop charged                                                   │
+│  □ Notebook in bag                                                  │
+│  □ Team materials (poster, resume) in bag                         │
+│  □ Personal items (water, snacks)                                   │
+│  □ Competition consent/registration forms                          │
+│                                                                    │
+│  AT VENUE - UNLOADING                                              │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ Move equipment to pit area                                     │
+│  □ Set up pit station                                              │
+│  □ Plug in charger, start battery charging                        │
+│  □ Place pit display materials                                     │
+│  □ Put robot on pit table                                           │
+│                                                                    │
+│  AT VENUE - FIRST HOUR                                             │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ Complete pit setup checklist                                    │
+│  □ Run robot inspection checklist                                  │
+│  □ Get in inspection queue early                                   │
+│  □ Test practice field (if available)                              │
+│  □ Verify autonomous works on official field                       │
+│  □ Meet with drivers for final strategy                            │
+│                                                                    │
+│  CRITICAL REMINDERS                                                │
+│  □────────────────────────────────────────────────────────────────  │
+│  □ DO NOT leave batteries discharging overnight                     │
+│  □ DO keep robot secured when not in use                          │
+│  □ DO have backup plans for common failures                        │
+│  □ DO stay hydrated and fed                                       │
+│  □ DO communicate with your team throughout the day               │
+│                                                                    │
+└────────────────────────────────────────────────────────────────────┘
+```

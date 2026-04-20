@@ -1,0 +1,268 @@
+# Welcome to MRJL
+
+Welcome to the **Mingwan Junior League (MRJL)** — where engineering meets teamwork, and every competition teaches us something new.
+
+::: {.callout-note}
+This handbook is your complete guide to MRJL robotics. Whether you're a new member learning the ropes or a returning competitor refining your skills, you'll find everything you need here.
+:::
+
+## What is MRJL?
+
+MRJL is a competitive robotics league where teams design, build, and program autonomous and driver-controlled robots to compete in game-based challenges. More than just building robots, MRJL teaches:
+
+- **Engineering thinking** — breaking problems into solvable pieces
+- **Teamwork** — collaboration across roles and responsibilities
+- **Iterative improvement** — testing, failing, and trying again
+- **Documentation** — recording your journey for judges and yourself
+
+## Our Core Values
+
+| Value | What It Means | In Practice |
+|-------|---------------|-------------|
+| **Collaboration** | We succeed together, not individually | Pair coding, shared building, team reviews |
+| **Iteration** | First isn't final; final is never done | Test early, fail cheap, improve constantly |
+| **Modularity** | Build small, connect smart | Design components that work independently |
+| **Respect** | Every role matters | Builders and coders equally important |
+
+---
+
+# Section 1: Welcome to MRJL {.unnumbered}
+
+## 1.1 Club Rules
+
+Every member agrees to the following when joining MRJL:
+
+### Attendance & Commitment
+
+1. **Be on time** — Meetings start at the scheduled time. Being late affects the whole team.
+2. **Communicate absences** — If you can't make a meeting, notify your captain at least 24 hours in advance.
+3. **Come prepared** — Review the previous session's notes before each meeting.
+
+### Safety & Workspace
+
+1. **Safety glasses on** — Always wear safety glasses when cutting, drilling, or testing motors.
+2. **Clean as you go** — Return tools to their designated spots after use.
+3. **No testing without supervision** — Autonomous code tests require a mentor present.
+
+### Team Conduct
+
+1. **Support your teammates** — Offer help before being asked.
+2. **Own your mistakes** — We learn more from failures than successes.
+3. **Respect all roles** — Builders, coders, drivers, and notebookers are all essential.
+
+::: {.callout-warning}
+Violations of safety rules will result in immediate removal from the activity until a mentor review.
+:::
+
+## 1.2 Meeting Schedule
+
+| Day | Time | Activity | Location |
+|-----|------|----------|----------|
+| **Monday** | 18:00–21:00 | Open Lab (building & coding) | Workshop |
+| **Thursday** | 18:00–20:00 | Strategy & Practice | Workshop |
+
+### Weekly Rhythm
+
+**Monday** — Deep work session
+
+- New members: Training exercises
+- Returning members: Active build/coding sprints
+- Captain: Check-in with each role
+
+**Thursday** — Integration & Review
+
+- Driver practice (30 min per team)
+- Autonomous code testing
+- Notebook review & updates
+
+## 1.3 Team Commitment
+
+Joining MRJL means committing to:
+
+### Time Requirements
+
+- **Minimum**: 4 hours/week during competition season
+- **Preferred**: 6–8 hours/week for competitive teams
+- **Tournament days**: Full day availability required
+
+### Competition Commitment
+
+1. Attend all scheduled tournaments
+2. Arrive 1 hour before official start time
+3. Stay until awards ceremony (unless excused by captain)
+4. Participate in load-in and load-out
+
+::: {.callout-tip}
+## Commitment Levels
+
+**Casual** — 4 hrs/week, attend 1 tournament
+**Competitive** — 8 hrs/week, attend all tournaments
+**Leadership** — Above + captain/mentor duties
+:::
+
+## 1.4 Team Roles
+
+Every team member holds **two roles** — one **pit role** and one **field role**. This ensures everyone contributes to both robot operations and team management.
+
+### Pit Roles (Robot-Side)
+
+| Role | Count | Responsibilities |
+|------|-------|------------------|
+| **Builder** | 2x | Mechanical construction, maintenance, modifications |
+| **Coder** | 2x | Programming autonomous routines, driver assists |
+
+### Field Roles (Competition-Side)
+
+| Role | Count | Responsibilities |
+|------|-------|------------------|
+| **Driver A** | 1x | First 30 seconds of driver period (autonomous transition) |
+| **Driver B** | 1x | Second 30 seconds of driver period (endgame focus) |
+| **Captain** | 1x | Strategy, time management, judge interviews |
+
+### Role Expectations
+
+#### Builder (2x)
+
+- Arrive knowing the current robot state
+- Can explain any mechanism's function
+- Maintains a "build log" of changes made
+
+#### Coder (2x)
+
+- Version controls all code in the team repository
+- Documents autonomous routines with comments
+- Tests code before every meeting
+
+#### Driver A (First 30s Specialist)
+
+- Masters the transition from autonomous to driver control
+- Excellent spatial awareness for quick pick-ups
+- Practices the same 10-second sequence 50+ times
+
+#### Driver B (Endgame Specialist)
+
+- Focuses on high-value endgame actions
+- Efficient with endgame time (last 15 seconds)
+- Communicates clearly with Driver A
+
+#### Captain
+
+::: {.callout-note}
+The Captain does NOT drive. Their job is to maximize the team's performance across all areas.
+:::
+
+- **Pre-match**: Strategy brief to drivers, equipment check
+- **During match**: Time keeper, timeout manager
+- **Post-match**: Notes for notebook, debrief to team
+
+## 1.5 Collaboration
+
+### Pair Coding
+
+Two coders work together at one computer:
+
+1. **Driver** — Types code, manages files
+2. **Navigator** — Reviews code aloud, catches bugs, thinks ahead
+
+```
+Session Structure (45 min):
+├── 5 min: Navigator explains what the code should do
+├── 30 min: Pair coding
+├── 5 min: Both review the final code
+└── 5 min: Commit to repository with clear message
+```
+
+### Pair Building
+
+Two builders work together on the same mechanism:
+
+1. **Primary** — Operates tools, makes cuts/drills
+2. **Spotter** — Holds parts steady, checks measurements, watches safety
+
+::: {.callout-warning}
+No builder operates power tools without a spotter present.
+:::
+
+## 1.6 Iterative Development
+
+We follow a **build-test-learn** cycle:
+
+```
+┌─────────────┐
+│  DESIGN     │ ← Sketch on paper first
+└──────┬──────┘
+       ▼
+┌─────────────┐
+│  BUILD      │ ← Quick prototype (cardboard is fine)
+└──────┬──────┘
+       ▼
+┌─────────────┐
+│  TEST       │ ← Does it work? Does it break?
+└──────┬──────┘
+       ▼
+┌─────────────┐
+│  LEARN      │ ← What worked? What didn't?
+└──────┬──────┘
+       │
+       ▼ (repeat)
+```
+
+### The 70% Rule
+
+> "If a design works at 70%, ship it and iterate."
+
+Perfect is the enemy of good. Get something working, then improve it.
+
+## 1.7 Parallel Building
+
+When time is limited, we work on **multiple subsystems simultaneously**:
+
+### Example: Robot Build Timeline
+
+| Time Block | Builder A | Builder B | Coder |
+|------------|-----------|-----------|-------|
+| Hour 1 | Chassis assembly | Intake prototype | Driver controls |
+| Hour 2 | Drive motors | Intake refinement | Autonomous v1 |
+| Hour 3 | Mounting | Test intake | Sensor integration |
+
+### Communication Protocol
+
+- **Slack channel**: `#build-status` for real-time updates
+- **Design doc**: Shared Google Doc with current specs
+- **Handoff notes**: Brief message when switching tasks
+
+## 1.8 Modular Design & Small Steps
+
+### Modular Design
+
+Build components that can be:
+
+1. **Tested independently** — Does the intake work without the arm?
+2. **Replaced quickly** — Can swap the claw in under 5 minutes?
+3. **Documented easily** — Clear function and interface
+
+### Small Step Iteration
+
+**Instead of:** Build whole robot → Test whole robot → Debug everything
+
+**Do:** Build intake → Test intake → Build arm → Test arm → Integrate → Test whole robot
+
+### The "Hello World" of Mechanisms
+
+Before any mechanism goes on the robot, demonstrate it can:
+
+1. Complete its basic function (claw closes)
+2. Withstand normal use (doesn't break)
+3. Be quickly attached/removed (tool-free if possible)
+
+::: {.callout-example}
+## Example: Building a Claw
+
+**Step 1**: Build a cardboard prototype. Does it close? Is it strong enough?
+
+**Step 2**: Build the actual claw. Test it 100 times. Does it survive?
+
+**Step 3**: Mount it temporarily. Can you swap it for a different end effector?
+
+**Step 4**: Final integration. Document the mounting points and any code needed.
+:::

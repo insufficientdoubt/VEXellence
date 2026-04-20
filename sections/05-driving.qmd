@@ -1,0 +1,428 @@
+# Driving Fundamentals
+
+The driver period is where your robot's capabilities meet human skill. Great drivers can maximize a good robot, while mediocre drivers waste a great one. This section teaches you how to drive effectively and safely.
+
+::: {.callout-note}
+## Learning Objectives
+
+By the end of this section, you will be able to:
+
+1. Execute precise movements with your robot
+2. Communicate effectively with your driving partner
+3. Handle game pieces under pressure
+4. Make split-second decisions in competition
+:::
+
+---
+
+# Section 5: Driving {.unnumbered}
+
+## 5.1 The Two-Driver System
+
+MRJL uses a two-driver system where each driver controls specific periods and mechanisms.
+
+### Driver Responsibilities
+
+```
+Match Timeline with Driver Roles
+═══════════════════════════════════════════════════════════════
+
+          AUTONOMOUS (45 sec)        │    DRIVER CONTROL (75 sec)
+          ─────────────────────      │    ──────────────────────
+                                     │
+  0 sec ─┤                           │
+         │   NO HUMAN INPUT          │     NO HUMAN INPUT
+         │                           │
+         │   Robot runs              │     Robot runs
+         │   pre-programmed           │     driver-controlled
+         │   routines                 │     routines
+         │                           │
+ 45 sec ─┤───────────────────────────┤─────────────────────────
+         │                           │
+         │           45 sec          │    Driver A (first 30s)
+         │                           │    ─────────────────
+         │                           │    Driver B (last 30s)
+         │                           │
+120 sec ─┤───────────────────────────┤─────────────────────────
+
+═══════════════════════════════════════════════════════════════
+```
+
+### Driver A — First 30 Seconds Specialist
+
+**Primary focus**: Smooth transition from autonomous + early scoring
+
+**Skills required**:
+
+- Quick reaction time
+- Precise pickup alignment
+- Efficient path planning
+- Clean handoff communication
+
+**Typical responsibilities**:
+
+1. Execute the post-autonomous pickup
+2. Score the first game pieces
+3. Set up Driver B for success
+4. Communicate position and status
+
+### Driver B — Endgame Specialist
+
+**Primary focus**: High-value scoring + endgame activation
+
+**Skills required**:
+
+- Patience under pressure
+- Precise endgame timing
+- Awareness of remaining time
+- Decision making for last pieces
+
+**Typical responsibilities**:
+
+1. Continue scoring after Driver A
+2. Prioritize high-value targets
+3. Position for endgame (last 30 seconds)
+4. Execute endgame activation reliably
+
+## 5.2 Driver Communication
+
+Communication between drivers determines match success.
+
+### Standard Callouts
+
+| Callout | Meaning | Response |
+|---------|---------|----------|
+| **"Moving to pickup"** | Driver repositioning | Other driver waits/clears |
+| **"Got one!"** | Game piece acquired | Continue to next action |
+| **"Scoring!"** | About to score | Maintain position |
+| **"Time check!"** | Asking for time remaining | Call out time |
+| **"30 seconds"** | Endgame phase starting | Shift to endgame mode |
+| **"Done"** | Action complete | Acknowledge and continue |
+
+### Communication Protocol
+
+```python
+"""
+Example driver communication structure.
+This would be called via controller buttons or
+physical signals in competition.
+"""
+
+# Voice/hand signals between drivers
+DRIVER_COMMS = {
+    # Pre-match
+    "ready": "Drivers ready, awaiting start",
+    "abort": "Emergency stop - issue detected",
+    
+    # During match
+    "scanning": "Looking for target",
+    "acquiring": "Moving to pick up",
+    "acquired": "Game piece secured",
+    "scoring": "Executing score",
+    "scored": "Score confirmed",
+    "blocked": "Path obstructed - pivoting",
+    "reposition": "Moving to alternate position",
+    
+    # Handoff
+    "handoff": "Releasing control to Driver B",
+    "receiving": "Driver B ready",
+    
+    # Endgame
+    "endgame": "30 seconds - switching modes",
+    "approaching": "Moving to endgame zone",
+    "activating": "Beginning endgame sequence",
+    "complete": "Endgame achieved",
+}
+```
+
+### Position Calls
+
+Drivers must always know each other's position:
+
+```
+Robot Position Codes
+════════════════════════════════════
+
+A = Home zone / Starting area
+B = Low goal zone
+C = Mid goal zone
+D = High goal zone
+E = Pickup zone (nearest)
+F = Pickup zone (far)
+G = Endgame zone
+X = Defensive position
+
+════════════════════════════════════
+```
+
+## 5.3 Precision Driving Techniques
+
+### The Three-Point Turn
+
+Essential for navigating tight spaces:
+
+```
+Step 1          Step 2          Step 3
+─────────       ─────────       ─────────
+   │               │               │
+   │    ┌───┐      │               │
+   │    │   │      │    ┌───┐      │    ┌───┐
+   │    │ ● │──────►    │   │      │    │   │
+   │    │   │      │    │ ● │──────►    │ ● │
+   │    └───┘      │    └───┘      │    └───┘
+   │               │               │
+   ▼               ▼               ▼
+ Drive        Reverse        Drive forward
+ forward      with turn      aligned
+```
+
+### Alignment Techniques
+
+#### Using Physical Markers
+
+```
+Field Layout with Markers
+═══════════════════════════════════════
+
+     ┌─────────────────────────────┐
+     │                             │
+     │    ┊        ┊        ┊      │
+     │    ┊   A    ┊   B    ┊      │   A, B, C = Pickup zones
+     │    ┊        ┊        ┊      │
+     │    ┊────────┼────────┼      │   1, 2, 3 = Scoring zones
+     │    ┊        ┊        ┊      │
+     │    ┊   1    ┊   2    ┊   3  │
+     │    ┊        ┊        ┊      │
+     │    ┊────────┼────────┼      │
+     │    ┊        ┊        ┊      │
+     │    ┊   C    ┊        ┊      │
+     │    ┊        ┊        ┊      │
+     └────┴────────┴────────┴──────┘
+
+Alignment technique:
+1. Find the intersection of two lines
+2. Use controller deadband to stop
+3. Verify alignment with sensor (if available)
+```
+
+#### Using Timer Approximations
+
+When no visual markers exist:
+
+```
+Approximate Times (calibrate for YOUR robot)
+════════════════════════════════════════════
+
+Action                     │ Forward │ Reverse
+──────────────────────────┼─────────┼────────
+Drive 12 inches            │  1.2s   │  1.4s
+90° turn (in place)        │  0.8s   │  0.8s
+Align to pickup zone       │  0.5s   │  0.6s
+Approach scoring zone      │  0.7s   │  0.8s
+
+════════════════════════════════════════════
+```
+
+## 5.4 Game Piece Handling
+
+### Pickup Techniques
+
+#### Stationary Pickup
+
+```
+Approach Pattern for Stationary Pickup
+══════════════════════════════════════════
+
+         ┌────────┐
+         │ PICKUP │
+         │  ZONE  │
+         └────────┘
+              ▲
+              │
+              │  ← Slow approach
+              │
+    ──────────┼────────────
+         ═════╪═════
+              │
+              │  ← Gentle contact
+              │
+            [ROBOT]
+              │
+              ▼
+         ═══════════
+        ╱  GAME      ╲
+       │   PIECE      │
+        ╲             ╱
+         ════════════
+
+Key: Slow approach = accurate pickup
+```
+
+#### Moving Pickup (Advanced)
+
+```
+Intercept Pattern for Moving Pickup
+════════════════════════════════════
+
+     GAME PIECE (moving)
+          ● →
+          │
+          │ Predict intersection point
+          │
+          ▼
+    ┌─────────────┐
+    │             │
+    │    ┌───┐    │
+    │    │   │    │  ← Robot waits at
+    │    │ ● │────┼──  predicted point
+    │    │   │    │
+    │    └───┘    │
+    │             │
+    └─────────────┘
+
+Key: Lead the target, don't chase it
+```
+
+### Scoring Precision
+
+#### Height Transitions
+
+```
+Scoring Height Hierarchy
+════════════════════════════════════════════
+
+    Low Goal      Mid Goal      High Goal
+    (easiest)     (medium)      (hardest)
+    
+       ┌─┐           ┌──┐         ┌───┐
+       │ │           │  │         │   │
+       │ │           │  │         │   │
+       └─┘           └──┘         └───┘
+        2pts           5pts         10pts
+
+Strategy: 
+- Secure low goals early (reliable)
+- Build to mid goals
+- Reserve high goals for when you have time
+```
+
+## 5.5 Endgame Driving
+
+The last 30 seconds often determine match outcomes.
+
+### Endgame Priority
+
+| Priority | Action | Time Required | Points |
+|----------|--------|---------------|--------|
+| 1 | Endgame mechanism | 5-15 sec | 15-25 |
+| 2 | High-value scoring | 8-10 sec | 10-15 |
+| 3 | Low-value scoring | 3-5 sec | 5-10 |
+| 4 | Defensive | Variable | Strategic |
+
+### Endgame Timeline
+
+```
+Last 30 Seconds
+════════════════════════════════════════════════════
+
+30s  │  Begin endgame approach
+     │  Driver B takes control
+     │
+25s  │  Reach endgame zone
+     │  Position robot
+     │
+20s  │  Begin endgame mechanism
+     │  If mechanism fails, switch to high-value score
+     │
+15s  │  Confirm endgame completion
+     │  If not done, commit fully to backup plan
+     │
+10s  │  Lock in any remaining points
+     │
+ 5s  │  Stop all motion
+     │  Prepare for disable
+     │
+ 0s  │  Match ends
+     │  DON'T TOUCH CONTROLLER
+
+════════════════════════════════════════════════════
+```
+
+### Endgame Checklist
+
+Before endgame phase:
+
+- [ ] Robot is functional
+- [ ] Endgame mechanism is ready
+- [ ] Path to endgame zone is clear
+- [ ] Backup plan exists
+- [ ] Both drivers know the plan
+
+## 5.6 Driver Practice Routine
+
+### Weekly Practice Structure
+
+```
+Driver Practice Session (90 minutes)
+═══════════════════════════════════════════════════════════
+
+00:00 - 10:00  │ Fundamentals
+                │ - Basic driving (forward, back, turn)
+                │ - Precision exercises
+                │ - Controller sensitivity tuning
+                │
+10:00 - 30:00  │ Pickup Practice
+                │ - Stationary pieces (50 attempts)
+                │ - Timed pickup runs
+                │
+30:00 - 50:00  │ Scoring Practice
+                │ - Each scoring height (20 attempts each)
+                │ - Speed optimization
+                │
+50:00 - 70:00  │ Full Run Practice
+                │ - Complete driver period
+                │ - Multiple pieces
+                │ - Time trials
+                │
+70:00 - 90:00  │ Communication Drills
+                │ - Two-driver coordination
+                │ - Handoff practice
+                │ - Problem recovery
+
+═══════════════════════════════════════════════════════════
+```
+
+### Individual Skill Building
+
+Each driver should practice individually:
+
+#### Driver A Practice Focus
+
+- Fast reaction time
+- Precise first pickup
+- Clean autonomous transition
+- Quick scoring
+
+#### Driver B Practice Focus
+
+- Patience and timing
+- High-value targeting
+- Endgame precision
+- Time awareness
+
+### Progress Tracking
+
+| Skill | Baseline | Week 1 | Week 2 | Week 3 | Target |
+|-------|----------|--------|--------|--------|--------|
+| Pickup time | 5.2s | 4.8s | 4.2s | 3.9s | < 3.5s |
+| Score accuracy | 70% | 75% | 82% | 88% | > 90% |
+| Run completion | 80% | 85% | 90% | 95% | 100% |
+| Handoff time | 2.1s | 1.8s | 1.5s | 1.2s | < 1.0s |
+
+::: {.callout-tip}
+## The 100-Touch Rule
+
+Practice each skill **100 times minimum** before considering it reliable. That's 100 pickups, 100 scores, 100 turns.
+
+A skill practiced 100 times becomes muscle memory. A skill practiced 10 times is still thinking.
+:::

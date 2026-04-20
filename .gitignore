@@ -1,0 +1,40 @@
+# Byte-compiled / cached data for Python scripts
+__pycache__/
+*.py[cod]
+*$py.class
+
+# QR codes (generated dynamically)
+qr-codes/*.png
+
+# Build outputs
+docs/
+_book/
+_build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python virtual environments
+venv/
+env/
+.env
+
+# Jupyter notebooks (if any)
+.ipynb_checkpoints/
+
+# LaTeX auxiliary files
+*.aux
+*.log
+*.out
+
+# Quarto project files (these are in git)
+/*.yml
+/*.yaml
+!/quarto.yml.example

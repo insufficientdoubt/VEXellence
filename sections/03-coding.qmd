@@ -1,0 +1,458 @@
+# Coding Fundamentals
+
+This section teaches you how to program the VEX IQ robot. You'll start with basic controls and work up to autonomous routines that can score points without driver input.
+
+::: {.callout-note}
+## Learning Objectives
+
+By the end of this section, you will be able to:
+
+1. Write tank drive code for driver control
+2. Create autonomous routines that score points
+3. Implement separation of concerns in your codebase
+4. Debug and test code effectively
+:::
+
+::: {.callout-important}
+## Testing Environment Warning
+
+All code in this section is for the **testing environment only**. Your competition robot code should NEVER be shared and will use different (more optimized) implementations.
+:::
+
+---
+
+# Section 3: Coding {.unnumbered}
+
+## 3.1 Example Code for Learning
+
+The following examples use Python in the VEX Code Pro environment. These are simplified for learning — production competition code requires more robust error handling and optimization.
+
+### Setting Up Your Environment
+
+1. Install **VEX Code Pro** from vexrobotics.com
+2. Create a new VEX IQ project
+3. Select **Python** as the language
+4. Connect your Brain via USB
+
+### Basic Motor Control
+
+```python
+# Basic motor test
+# Move a motor forward for 2 seconds
+
+brain.screen.print("Motor Test Starting")
+motor_1.spin(FORWARD)
+wait(2, SECONDS)
+motor_1.stop()
+brain.screen.print("Motor Test Complete")
+```
+
+### Reading Sensor Data
+
+```python
+# Read gyroscope and print to screen
+brain.screen.clear()
+while True:
+    angle = inertial_1.rotation(DEGREES)
+    brain.screen.set_cursor(1, 1)
+    brain.screen.print("Rotation: ", angle)
+    wait(20, MSEC)
+```
+
+## 3.2 Coding Controls
+
+### Understanding the Controller Mapping
+
+The VEX IQ Controller sends values to the Brain continuously. Your code reads these values and maps them to motor outputs.
+
+| Controller Element | Value Range | Typical Use |
+|-------------------|-------------|-------------|
+| Left stick Y | -100 to 100 | Forward/back |
+| Left stick X | -100 to 100 | Turning |
+| Right stick Y | -100 to 100 | Arm/aux control |
+| Right stick X | -100 to 100 | Secondary functions |
+| Buttons | True/False | Mode switches |
+
+### Reading Controller Input
+
+```python
+# Continuous controller reading
+while True:
+    # Get controller values
+    forward_back = controller_1.axis3.position()
+    left_right = controller_1.axis4.position()
+    arm_up = controller_1.buttonL1.pressing()
+    arm_down = controller_1.buttonL2.pressing()
+    
+    # Print for debugging
+    brain.screen.set_cursor(1, 1)
+    brain.screen.print("A3:", forward_back, " A4:", left_right)
+    
+    wait(20, MSEC)
+```
+
+## 3.3 Manual Code for Tank Drive
+
+Tank drive is the most common control scheme for competition robots. Two joysticks control two sides of the drivetrain independently.
+
+### Tank Drive Implementation
+
+```python
+"""
+Tank Drive Controller
+---------------------
+Left stick: Left drivetrain motors
+Right stick: Right drivetrain motors
+"""
+
+# Drivetrain motor configuration
+LEFT_MOTORS = [motor_left1, motor_left2]
+RIGHT_MOTORS = [motor_right1, motor_right2]
+
+def tank_drive():
+    """Read controller and update drivetrain."""
+    # Get joystick values (-100 to 100)
+    left_speed = controller_1.axis3.position()  # Forward/back
+    right_speed = controller_1.axis2.position()  # Forward/back
+    
+    # Apply deadband (ignore small inputs)
+    if abs(left_speed) < 5:
+        left_speed = 0
+    if abs(right_speed) < 5:
+        right_speed = 0
+    
+    # Scale to percentage (0-100)
+    left_percent = left_speed / 100
+    right_percent = right_speed / 100
+    
+    # Set motor velocities
+    for motor in LEFT_MOTORS:
+        motor.set_velocity(left_percent * 100, PERCENT)
+        motor.spin(FORWARD if left_percent >= 0 else REVERSE)
+    
+    for motor in RIGHT_MOTORS:
+        motor.set_velocity(right_percent * 100, PERCENT)
+        motor.spin(FORWARD if right_percent >= 0 else REVERSE)
+
+# Main loop
+while True:
+    tank_drive()
+    wait(20, MSEC)  # 50Hz update rate
+```
+
+### Split Arcade Drive
+
+An alternative where one stick controls speed and the other controls turning:
+
+```python
+"""
+Split Arcade Drive
+-----------------
+Left stick Y: Speed (forward/back)
+Right stick X: Turn (left/right)
+"""
+
+LEFT_MOTORS = [motor_left1, motor_left2]
+RIGHT_MOTORS = [motor_right1, motor_right2]
+
+def split_arcade():
+    """Split arcade drive control."""
+    # Get inputs
+    speed = controller_1.axis3.position() / 100  # -1 to 1
+    turn = controller_1.axis4.position() / 100   # -1 to 1
+    
+    # Deadband
+    if abs(speed) < 0.05: speed = 0
+    if abs(turn) < 0.05: turn = 0
+    
+    # Calculate motor speeds
+    # Both motors get speed, but opposite sides get +/- turn
+    left_speed = speed + turn
+    right_speed = speed - turn
+    
+    # Normalize (prevent > 100%)
+    max_speed = max(abs(left_speed), abs(right_speed), 1)
+    if max_speed > 1:
+        left_speed /= max_speed
+        right_speed /= max_speed
+    
+    # Apply to motors
+    for motor in LEFT_MOTORS:
+        motor.set_velocity(left_speed * 100, PERCENT)
+        motor.spin(FORWARD)
+    
+    for motor in RIGHT_MOTORS:
+        motor.set_velocity(right_speed * 100, PERCENT)
+        motor.spin(FORWARD)
+
+while True:
+    split_arcade()
+    wait(20, MSEC)
+```
+
+## 3.4 Separation of Concerns
+
+Good code is organized into distinct modules, each handling one responsibility. This makes code easier to test, debug, and modify.
+
+### Module Structure
+
+```
+robot_code/
+├── __init__.py          # Package initialization
+├── drivetrain.py        # All drivetrain code
+├── mechanisms.py        # Intake, arm, etc.
+├── autonomous.py        # Auto routines
+├── constants.py         # Configuration values
+└── main.py              # Entry point
+```
+
+### constants.py — Configuration Values
+
+```python
+"""
+Constants and Configuration
+All tunable values in one place for easy adjustment.
+"""
+
+# Drivetrain
+WHEEL_CIRCUMFERENCE_MM = 200  # VEX IQ standard wheel
+DRIVE_GEAR_RATIO = 1.2        # Motor rotations per wheel rotation
+MAX_DRIVE_SPEED = 100          # Percent
+
+# Motor ports (match your physical setup!)
+LEFT_DRIVE_PORTS = [1, 2]
+RIGHT_DRIVE_PORTS = [3, 4]
+INTAKE_PORT = 5
+ARM_PORT = 6
+
+# Autonomous timing (seconds)
+INTAKE_RUN_TIME = 2.0
+ARM_LIFT_TIME = 1.5
+
+# Autonomous distances (motor degrees)
+DRIVE_FORWARD_90_DEG = 500  # Approximate, needs tuning
+TURN_90_DEG = 270           # Approximate, needs tuning
+```
+
+### drivetrain.py — Drivetrain Code
+
+```python
+"""
+Drivetrain Module
+Handles all drivetrain movement and odometry.
+"""
+
+from vex import *
+
+class Drivetrain:
+    def __init__(self, left_ports, right_ports):
+        self.left_motors = [Motor(port) for port in left_ports]
+        self.right_motors = [Motor(port) for port in right_ports]
+    
+    def tank(self, left_speed, right_speed):
+        """Direct tank control with speeds -1 to 1."""
+        for m in self.left_motors:
+            m.set_velocity(left_speed * 100, PERCENT)
+            m.spin(FORWARD if left_speed >= 0 else REVERSE)
+        
+        for m in self.right_motors:
+            m.set_velocity(right_speed * 100, PERCENT)
+            m.spin(FORWARD if right_speed >= 0 else REVERSE)
+    
+    def drive_distance(self, degrees, speed=50):
+        """Drive forward a specific distance."""
+        for m in self.left_motors + self.right_motors:
+            m.set_velocity(speed, PERCENT)
+            m.spinFor(FORWARD, degrees, DEGREES)
+        
+        # Wait for completion
+        while any(m.is_spinning() for m in self.left_motors):
+            wait(10, MSEC)
+    
+    def turn(self, degrees, speed=30):
+        """Turn in place by a specific angle."""
+        # Left motors forward, right motors back
+        for m in self.left_motors:
+            m.set_velocity(speed, PERCENT)
+            m.spin(FORWARD)
+        
+        for m in self.right_motors:
+            m.set_velocity(speed, PERCENT)
+            m.spin(REVERSE)
+        
+        # Wait for gyro to reach angle
+        while abs(inertial_1.rotation(DEGREES)) < abs(degrees):
+            wait(10, MSEC)
+        
+        self.stop()
+    
+    def stop(self):
+        """Stop all drivetrain motors."""
+        for m in self.left_motors + self.right_motors:
+            m.stop(HOLD)  # HOLD prevents coasting
+```
+
+### main.py — Entry Point
+
+```python
+"""
+MRJL Robot Code - Main Entry Point
+Competition version with separation of concerns.
+"""
+
+from vex import *
+from constants import *
+from drivetrain import Drivetrain
+from mechanisms import Mechanisms
+from autonomous import AutonomousRoutines
+
+# Initialize subsystems
+drive = Drivetrain(LEFT_DRIVE_PORTS, RIGHT_DRIVE_PORTS)
+mech = Mechanisms(INTAKE_PORT, ARM_PORT)
+auto = AutonomousRoutines(drive, mech)
+
+def driver_control():
+    """Main driver control loop."""
+    while True:
+        # Drivetrain
+        forward_back = controller_1.axis3.position() / 100
+        turn = controller_1.axis4.position() / 100
+        
+        left = forward_back + turn
+        right = forward_back - turn
+        drive.tank(left, right)
+        
+        # Mechanisms
+        if controller_1.buttonR1.pressing():
+            mech.intake_in()
+        elif controller_1.buttonR2.pressing():
+            mech.intake_out()
+        else:
+            mech.intake_stop()
+        
+        if controller_1.buttonL1.pressing():
+            mech.arm_up()
+        elif controller_1.buttonL2.pressing():
+            mech.arm_down()
+        else:
+            mech.arm_stop()
+        
+        wait(20, MSEC)
+
+# Competition mode handlers
+when_started_1(driver_control)
+```
+
+## 3.5 Autonomous Coding Model
+
+Autonomous routines score points without driver input. A good autonomous can win matches before drivers even touch the controller.
+
+### Autonomous Structure
+
+```python
+"""
+Autonomous Routines Module
+All autonomous routines for competition.
+"""
+
+class AutonomousRoutines:
+    def __init__(self, drivetrain, mechanisms):
+        self.drive = drivetrain
+        self.mech = mechanisms
+    
+    def skills_auto(self):
+        """
+        Full skills routine.
+        Optimize for maximum points.
+        """
+        # Phase 1: Collect pre-load and intake game pieces
+        self.mech.intake_in()
+        self.drive.drive_distance(500, 60)
+        wait(1, SECONDS)
+        
+        # Phase 2: Score on low goal
+        self.drive.turn(-45, 30)
+        self.mech.intake_out()
+        wait(0.5, SECONDS)
+        
+        # Phase 3: Reposition
+        self.drive.drive_distance(-200, 40)
+        self.drive.turn(90, 30)
+        
+        # Repeat for multiple pieces...
+        
+        self.mech.intake_stop()
+    
+    def simple_auto(self):
+        """
+        Simple 10-point routine.
+        Reliable, even if not maximum points.
+        """
+        # Just drive forward and score one piece
+        self.mech.intake_in()
+        self.drive.drive_distance(600, 50)
+        wait(2, SECONDS)
+        self.drive.stop()
+        self.mech.intake_out()
+    
+    def defense_auto(self):
+        """
+        Defensive autonomous.
+        Move to block opponent scoring.
+        """
+        self.drive.drive_distance(300, 80)
+        self.drive.turn(90, 50)
+        # Hold position
+```
+
+### Using the Gyroscope for Accuracy
+
+```python
+def gyro_turn(drivetrain, target_angle, tolerance=3, speed=30):
+    """
+    Turn to a specific angle using the gyroscope.
+    
+    Args:
+        drivetrain: Drivetrain instance
+        target_angle: Target angle in degrees (positive = clockwise)
+        tolerance: Acceptable error in degrees
+        speed: Turn speed in percent
+    """
+    # Reset gyro
+    inertial_1.reset_rotation()
+    
+    # Turn until within tolerance
+    while abs(inertial_1.rotation(DEGREES) - target_angle) > tolerance:
+        if inertial_1.rotation(DEGREES) < target_angle:
+            # Turn clockwise
+            drivetrain.turn_right(speed)
+        else:
+            # Turn counter-clockwise
+            drivetrain.turn_left(speed)
+        wait(10, MSEC)
+    
+    drivetrain.stop()
+```
+
+### Timing-Based vs. Sensor-Based
+
+::: {.callout-comparison}
+| Approach | Pros | Cons |
+|----------|------|------|
+| **Timing** | Simple, no calibration | Varies with battery |
+| **Encoder** | Accurate distance | Doesn't account for wheel slip |
+| **Gyro** | Accurate turns | Drifts over time |
+| **Combined** | Most reliable | Most complex |
+
+**Recommendation**: Use sensors for turns, timing for simple forward/backward moves in early autonomous, then add encoders as you refine.
+:::
+
+::: {.callout-tip}
+## Autonomous Testing Tips
+
+1. **Test each component separately** before combining
+2. **Run 5 times** — if it works 5/5, it's reliable
+3. **Check battery level** — autonomous timing varies with charge
+4. **Document your values** — note conditions when testing
+5. **Plan for failure** — what should the robot do if it doesn't detect the right position?
+:::
