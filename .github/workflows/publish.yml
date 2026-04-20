@@ -29,7 +29,7 @@ jobs:
         run: pip install qrcode[pil]
 
       - name: Render book
-        run: quarto render
+        run: quarto render --to html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
