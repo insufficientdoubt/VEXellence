@@ -14,9 +14,10 @@ try:
     import qrcode
 except ImportError:
     print("Installing qrcode...")
-    import subprocess
-    subprocess.run(["pip", "install", "qrcode[pil]"], check=True)
-    import qrcode
+    import subprocess, sys
+    subprocess.run([sys.executable, "-m", "pip", "install", "qrcode[pil]"], check=True)
+    subprocess.run([sys.executable, __file__])  # re-run in fresh process
+    sys.exit(0)  # exit; child process handles everything
 
 
 def get_qr_codes_dir():
