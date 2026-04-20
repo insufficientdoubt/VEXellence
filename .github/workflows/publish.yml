@@ -25,11 +25,11 @@ jobs:
         with:
           version: 'release'
 
+      - name: Install Python deps
+        run: pip install qrcode[pil]
+
       - name: Render book
-        run: |
-          pwd
-          ls _extensions/
-          quarto render
+        run: quarto render
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

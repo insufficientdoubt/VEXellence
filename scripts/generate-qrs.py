@@ -10,14 +10,7 @@ import hashlib
 import urllib.parse
 from pathlib import Path
 
-try:
-    import qrcode
-except ImportError:
-    print("Installing qrcode...")
-    import subprocess, sys
-    subprocess.run([sys.executable, "-m", "pip", "install", "qrcode[pil]"], check=True)
-    subprocess.run([sys.executable, __file__])  # re-run in fresh process
-    sys.exit(0)  # exit; child process handles everything
+import qrcode
 
 
 def get_qr_codes_dir():
@@ -41,7 +34,7 @@ def generate_qr(url, output_path):
     )
     qr.add_data(url)
     qr.make(fit=True)
-    
+
     img = qr.make_image(fill_color="black", back_color="white")
     img.save(output_path)
     return output_path
@@ -50,18 +43,18 @@ def generate_qr(url, output_path):
 def scan_qmd_files():
     """Scan all .qmd files for video-or-qr shortcodes."""
     urls = set()
-    
+
     for qmd_file in Path(".").rglob("*.qmd"):
         content = qmd_file.read_text()
-        
+
         # Match video-or-qr shortcodes
         # {{< video-or-qr "url" "caption" >}}
         pattern = r'\{\{< video-or-qr ["\']([^"\']+)["\']'
         matches = re.findall(pattern, content)
-        
+
         for url in matches:
             urls.add(url)
-    
+
     return urls
 
 
@@ -69,26 +62,26 @@ def main():
     """Main entry point."""
     qr_dir = get_qr_codes_dir()
     qr_dir.mkdir(exist_ok=True)
-    
+
     # Scan for URLs
     urls = scan_qmd_files()
-    
+
     if not urls:
         print("No video-or-qr shortcodes found.")
         return
-    
+
     print(f"Found {len(urls)} video URLs, generating QR codes...")
-    
+
     for url in urls:
         filename = get_qr_filename(url)
         output_path = qr_dir / filename
-        
+
         if output_path.exists():
             print(f"  Skipping existing: {filename}")
         else:
             print(f"  Generating: {filename}")
             generate_qr(url, output_path)
-    
+
     print("QR code generation complete.")
 
 
