@@ -26,7 +26,10 @@ jobs:
           version: 'release'
 
       - name: Render book
-        run: quarto render
+        run: |
+          pwd
+          ls _extensions/
+          quarto render
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
