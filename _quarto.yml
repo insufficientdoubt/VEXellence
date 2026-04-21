@@ -44,7 +44,7 @@ format:
       - right=2.5cm
     include-in-header:
       text: |
-        \usepackage{tcolorbox}
+        \usepackage[skins,breakable]{tcolorbox}
         \usepackage{rotating}
   epub:
     toc: true
